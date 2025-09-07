@@ -1,0 +1,5 @@
+using the following code to downgrade for compatibility using datasets
+pip install datasets==2.16.0
+pip install huggingface-hub==0.20.0
+pip install torch numpy pandas
+Any late version of dashscope should be compatible.
