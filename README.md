@@ -1,8 +1,8 @@
-# AmazonReview-Chinese-Sentiment-Analysis-BERT
+# AmazonReview-Chinese-Sentiment-Analysis
 
 ## Overview
 
-This project firstly translates 2023 Amazon Review of Digital_Music into Chinese using Qwen API, then perform a 3-class snetiment analysis based on the data (around 10,000 comments) in LLaMA Factory.
+This project firstly translates the 2023 Amazon Review of Digital_Music into Chinese using Qwen API, then performs a 3-class sentiment analysis based on the data (around 10,000 comments) in LLaMA Factory.
 
 ## Key Results
 2 models are fine-tuned: Qwen3-0.6B-base and Qwen3-4B-instruct-2057. 
@@ -10,7 +10,7 @@ Qwen3-4B-Instruct-2507: with 5-shot prompting on 2,000 samples, the model achiev
 
 For smaller models with locally merged weights, the two **Qwen3-0.6B** zero-shot runs achieve **57.15%** (**0.075 s/sample**) and **54.35%** (**0.061 s/sample**), with the corresponding **5-shot** results **79.66%** (**0.26 s/sample**).
 
-Overall,The 4B instruction model delivers the best result this round at **82.75%** with a reasonable few-shot size, but the time delay is far beyond industrial demand. Perform a LoRA fine-tune on 0.6B's 5-shot may be a satisfactory plan.
+Overall, the 4B instruction model delivers the best result this round at **82.75%** with a reasonable few-shot size, but the time delay is far beyond industrial demand. Perform a LoRA fine-tune on 0.6B's 5-shot may be a satisfactory plan.
 
 ## Repository Structure
 TO DO
@@ -18,12 +18,12 @@ TO DO
 ## Getting Started
 To reproduce the results in this repository, please follow the steps below.
 ### Prerequisites
-This project requireds modules listed in the `requirements.txt` file, or you can follow steps below. Do pay attention that new versions of **Hugging Face**'s **datasets** module DOES NOT support running data's author's remote script to download the dataset. One way (in which I used) is downgrading **datasets** to a certain version, listed in `requirements.txt`, then use the script to download.
+This project requires modules listed in the `requirements.txt` file, or you can follow the steps below. Do pay attention that new versions of **Hugging Face**'s **datasets** module DOES NOT support running data's author's remote script to download the dataset. One way (in which I used) is downgrading **datasets** to a certain version, listed in `requirements.txt`, then using the script to download.
 
 ### Installation
 1. **Data download**:
 Go to HuggingFace's dataset part and find Amazon-Review 2023. Or you can click this link directly: https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023
-Choose any review you like, just change other variable names as well. Using `data_retrive.py` to retrive data:
+Choose any review you like, just change other variable names as well. Using `data_retrive.py` to retrieve data:
 ```bash
 python sripts/data_retrive.py
 ```
@@ -37,7 +37,7 @@ pip3 install torch torchvision torchaudio --index-url [https://download.pytorch.
 
 3. **Install LLama Factory**
    
-Clone and install LLaMA-Factory framework, further train log, evaluated predicitons, etc will be saved in this file accordingly.
+Clone and install the LLaMA-Factory framework, further train log, evaluated predicitons, etc will be saved in this file accordingly.
 ```bash
 git clone [https://github.com/hiyouga/LLaMA-Factory.git](https://github.com/hiyouga/LLaMA-Factory.git)
 cd LLaMA-Factory
